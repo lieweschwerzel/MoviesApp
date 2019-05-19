@@ -11,6 +11,7 @@ import android.view.GestureDetector;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.movieapp.adapter.MoviesAdapter;
 import com.example.movieapp.model.Movie;
@@ -18,9 +19,9 @@ import com.example.movieapp.model.Movie;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    //    private List<Movie> mMovies;
+        private List<Movie> mMovies;
 //
-//    private MoviesAdapter mAdapter;
+//    private MoviesAdapter adapter;
 //    private RecyclerView mRecyclerView;
     private EditText mYear;
     private MainActivityViewModel viewModel;
@@ -55,16 +56,18 @@ public class MainActivity extends AppCompatActivity {
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        final MoviesAdapter adapter = new MoviesAdapter();
+        final MoviesAdapter adapter = new MoviesAdapter(this, mMovies);
         recyclerView.setAdapter(adapter);
 
         String year = mYear.getText().toString();
 
         viewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
-        viewModel.getMovies().observe(this, new Observer<List<Movie>>() {
+        viewModel.getAllMovies().observe(this, new Observer<List<Movie>>() {
             @Override
             public void onChanged(@Nullable List<Movie> movies) {
-                adapter.submitList(movies);
+//                adapter.submitList(movies);
+                mMovies = movies;
+                Toast.makeText(MainActivity.this, movies.get(1).toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -81,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 //
-//        viewModel.getMovies().observe(this, new Observer<List<Movie>>() {
+//        viewModel.getAllMovies().observe(this, new Observer<List<Movie>>() {
 //            @Override
 //            public void onChanged(@Nullable List<Movie> movies) {
 //                mMovies = movies;

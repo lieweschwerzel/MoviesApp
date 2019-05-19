@@ -33,7 +33,7 @@ public class MainActivityViewModel extends AndroidViewModel {
         return error;
     }
 
-    public MutableLiveData<List<Movie>> getMovies() {
+    public MutableLiveData<List<Movie>> getAllMovies() {
         return mMovies;
     }
 
@@ -45,7 +45,7 @@ public class MainActivityViewModel extends AndroidViewModel {
                     @Override
                     public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
                         List<Movie> movies = response.body().getResults();
-//                        mMovies = movies;
+//                        mMovies = (MutableLiveData<List<Movie>>) movies;
 //                        trivia.setValue(response.body().getText());
                         Toast.makeText(getApplication(), movies.toString(), Toast.LENGTH_LONG).show();
                         Log.d(TAG, movies.get(1).toString());
