@@ -29,9 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         mYear = findViewById(R.id.yearEdit);
-
         //Initialize the recycleview variables
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -53,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable List<Movie> movies) {
                 mMovies = movies;
-                Toast.makeText(MainActivity.this, "size:" + mMovies.size(), Toast.LENGTH_SHORT).show();
                 updateUI();
             }
         });

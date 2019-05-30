@@ -30,8 +30,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
     public MovieHolder onCreateViewHolder(ViewGroup viewGroup, int pos) {
         Context context = viewGroup.getContext();
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.movie_card, viewGroup, false);
-
+                .inflate(R.layout.movie_card2, viewGroup, false);
         MoviesAdapter.MovieHolder viewHolder = new MoviesAdapter.MovieHolder(view);
         return viewHolder;
     }
