@@ -8,7 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MovieApi {
 
     public static final String BASE_URL = "http://api.themoviedb.org/3/";
-//    public static Retrofit retrofit = null;
 
     public static Service create() {
 
@@ -24,8 +23,5 @@ public class MovieApi {
 
         return MovieApi.create(Service.class);
     }
-    // Return the Retrofit NumbersApiService
-
-//        return retrofit;
 }
 

@@ -1,99 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.movieapp.DetailActivity"
-    tools:showIn="@layout/activity_detail">
+    tools:showIn="@layout/activity_detail" >
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="261dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="@dimen/padding_layout"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/posterView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="111dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"
+        android:padding="@dimen/padding_layout"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/plot"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/starView"
+        app:layout_constraintTop_toBottomOf="@+id/releasedate"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/releasedate"
+        android:layout_width="260dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="8dp"
+        android:padding="@dimen/padding_layout"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/posterView"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/plot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ad">
+        android:layout_marginLeft="4dp"
+        android:padding="@dimen/padding_layout"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:showIn="@layout/activity_detail">
+    <ImageView
+        android:id="@+id/posterView"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/starView"
+        android:layout_width="38dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="132dp"
+        app:layout_constraintStart_toStartOf="@+id/releasedate"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/name"
-                android:layout_marginLeft="@dimen/layout_margin_left"
-                android:padding="@dimen/padding_layout"
-                android:layout_marginTop="@dimen/layout_margin_top"
-                android:textSize="20sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="16dp"
-                tools:layout_constraintTop_creator ="1"
-                tools:layout_constraintLeft_creator ="1"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rating"
-                android:layout_marginLeft="@dimen/layout_margin_left"
-                android:padding="@dimen/padding_layout"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                android:layout_marginStart="16dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                tools:layout_constraintTop_creator="1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/releasedate"
-                android:layout_marginLeft="@dimen/layout_margin_left"
-                android:padding="@dimen/padding_layout"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@+id/rating"
-                app:layout_constraintLeft_toLeftOf="parent" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/plot"
-                android:layout_marginLeft="@dimen/layout_margin_left"
-                android:padding="@dimen/padding_layout"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@+id/releasedate"
-                app:layout_constraintLeft_toLeftOf="parent" />
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:id="@+id/thumbnailUrl"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/plot"-->
-                <!--app:layout_constraintLeft_toLeftOf="parent"-->
-                <!--android:visibility="invisible"/>-->
-
-            <!--<android.support.v7.widget.RecyclerView-->
-                <!--android:id="@+id/recycler_view1"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:clipToPadding="false"-->
-                <!--android:scrollbars="vertical"-->
-                <!--app:layout_constraintLeft_toLeftOf="parent"-->
-                <!--tools:layout_editor_absoluteY="281dp" />-->
-
-
-        </android.support.constraint.ConstraintLayout>
-
-    </ScrollView>
-
-    </LinearLayout>
-
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Overview"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/posterView" />
+</android.support.constraint.ConstraintLayout>

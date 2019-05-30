@@ -12,3 +12,4 @@ public interface Service {
     @GET("discover/movie?&sort_by=popularity.desc&with_original_language=en")
     Call<MoviesResponse> getPopularMovies(@Query("api_key") String apiKey, @Query("primary_release_year") String year);
 }
+
